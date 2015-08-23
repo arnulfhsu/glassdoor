@@ -3,7 +3,7 @@
 namespace Glassdoor\Action;
 
 
-use Glassdoor\GlassdoorException;
+use Glassdoor\Error\GlassdoorException;
 use Glassdoor\ResponseObject\JobProgressionResponse;
 
 class JobProgression implements ActionInterface {
@@ -15,7 +15,7 @@ class JobProgression implements ActionInterface {
    *
    * @return array
    *
-   * @throws \Glassdoor\GlassdoorException
+   * @throws \Glassdoor\Error\GlassdoorException
    */
   public function getParams() {
     if (empty($this->job_title)) {
@@ -36,7 +36,7 @@ class JobProgression implements ActionInterface {
    * @param $value
    * @return $this
    *
-   * @throws \Glassdoor\GlassdoorException
+   * @throws \Glassdoor\Error\GlassdoorException
    */
   public function addParam($key, $value) {
     if ($key !== 'job_title' || $key !== 'country_id') {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Glassdoor;
+namespace Glassdoor\Error;
 
 
 class GlassdoorException extends \Exception {}
