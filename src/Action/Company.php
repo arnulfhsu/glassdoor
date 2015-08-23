@@ -4,6 +4,7 @@ namespace Glassdoor\Action;
 
 
 use Glassdoor\Error\GlassdoorException;
+use Glassdoor\ResponseObject\Company\CompanyResponse;
 
 class Company implements ActionInterface {
   private $query;
@@ -138,6 +139,16 @@ class Company implements ActionInterface {
    * @return \Glassdoor\ResponseObject\ResponseInterface
    */
   public function buildResponse(array $body) {
-    // TODO: Implement buildResponse() method.
+    $companies = empty($body['response']['employers']) ? [] : $body['response']['employers'];
+
+    $values = $body['result'];
+    unset($values['employers']);
+
+    $values['companies'] = $companies;
+    $values['locationLongName'] = isset($values['lashedLocation']['locationLongName']) ? isset($values['lashedLocation']['locationLongName']) : NULL;
+    $values['locationShortName'] = isset($values['lashedLocation']['locationShortName']) ? isset($values['lashedLocation']['locationShortName']) : NULL;
+    $values['locationType'] = isset($values['lashedLocation']['locationType']) ? isset($values['lashedLocation']['locationType']) : NULL;
+
+    return new CompanyResponse($values);
   }
 }
