@@ -7,78 +7,79 @@ use Glassdoor\ResponseObject\ResponseInterface;
 use GuzzleHttp\Psr7\Uri;
 
 class Company implements ResponseInterface {
+
   /**
    * @var int
    */
-  public $id;
+  private $id;
   /**
    * @var string
    */
-  public $name;
+  private $name;
   /**
    * @var Uri
    */
-  public $website;
+  private $website;
   /**
    * @var boolean
    */
-  public $isEEP;
+  private $isEEP;
   /**
    * @var boolean
    */
-  public $exactMatch;
+  private $exactMatch;
   /**
    * @var string
    */
-  public $industry;
+  private $industry;
   /**
    * @var int
    */
-  public $numberOfRating;
+  private $numberOfRating;
   /**
    * @var Uri
    */
-  public $squareLogo;
+  private $squareLogo;
   /**
    * @var float
    */
-  public $overallRatings;
+  private $overallRatings;
   /**
    * @var float
    */
-  public $ratingDescription;
+  private $ratingDescription;
   /**
    * @var float
    */
-  public $cultureAndValuesRatings;
+  private $cultureAndValuesRatings;
   /**
    * @var float
    */
-  public $seniorLeadershipRating;
+  private $seniorLeadershipRating;
   /**
    * @var float
    */
-  public $compensationAndBenefitsRating;
+  private $compensationAndBenefitsRating;
   /**
    * @var float
    */
-  public $careerOpportunitiesRating;
+  private $careerOpportunitiesRating;
   /**
    * @var float
    */
-  public $workLifeBalanceRating;
+  private $workLifeBalanceRating;
   /**
    * @var float
    */
-  public $recommendToFriendRating;
+  private $recommendToFriendRating;
   /**
    * @var \Glassdoor\ResponseObject\Company\Review
    */
-  public $featuredReview;
+  private $featuredReview;
   /**
    * @var Person
    */
-  public $ceo;
+  private $ceo;
 
   public function __construct(array $values) {
     $this->id = empty($values['id']) ? '' : $values['id'];
@@ -105,5 +106,131 @@ class Company implements ResponseInterface {
     if (!empty($values['ceo'])) {
       $this->ceo = new Person($values['ceo']);
     }
+  }
+
+  /**
+   * @return int
+   */
+  public function getId() {
+    return $this->id;
+  }
+
+  /**
+   * @return string
+   */
+  public function getName() {
+    return $this->name;
+  }
+
+  /**
+   * @return Uri
+   */
+  public function getWebsite() {
+    return $this->website;
+  }
+
+  /**
+   * @return boolean
+   */
+  public function isIsEEP() {
+    return $this->isEEP;
+  }
+
+  /**
+   * @return boolean
+   */
+  public function isExactMatch() {
+    return $this->exactMatch;
+  }
+
+  /**
+   * @return string
+   */
+  public function getIndustry() {
+    return $this->industry;
+  }
+
+  /**
+   * @return int
+   */
+  public function getNumberOfRating() {
+    return $this->numberOfRating;
+  }
+
+  /**
+   * @return Uri
+   */
+  public function getSquareLogo() {
+    return $this->squareLogo;
+  }
+
+  /**
+   * @return float
+   */
+  public function getOverallRatings() {
+    return $this->overallRatings;
+  }
+
+  /**
+   * @return float
+   */
+  public function getRatingDescription() {
+    return $this->ratingDescription;
+  }
+
+  /**
+   * @return float
+   */
+  public function getCultureAndValuesRatings() {
+    return $this->cultureAndValuesRatings;
+  }
+
+  /**
+   * @return float
+   */
+  public function getSeniorLeadershipRating() {
+    return $this->seniorLeadershipRating;
+  }
+
+  /**
+   * @return float
+   */
+  public function getCompensationAndBenefitsRating() {
+    return $this->compensationAndBenefitsRating;
+  }
+
+  /**
+   * @return float
+   */
+  public function getCareerOpportunitiesRating() {
+    return $this->careerOpportunitiesRating;
+  }
+
+  /**
+   * @return float
+   */
+  public function getWorkLifeBalanceRating() {
+    return $this->workLifeBalanceRating;
+  }
+
+  /**
+   * @return float
+   */
+  public function getRecommendToFriendRating() {
+    return $this->recommendToFriendRating;
+  }
+
+  /**
+   * @return Review
+   */
+  public function getFeaturedReview() {
+    return $this->featuredReview;
+  }
+
+  /**
+   * @return Person
+   */
+  public function getCeo() {
+    return $this->ceo;
   }
 }

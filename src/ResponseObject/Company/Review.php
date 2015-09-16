@@ -9,57 +9,57 @@ class Review implements ResponseInterface {
   /**
    * @var int
    */
-  public $id;
+  private $id;
 
   /**
    * @var boolean
    */
-  public $currentJob;
+  private $currentJob;
 
   /**
    * @var \DateTime
    */
-  public $reviewDateTime;
+  private $reviewDateTime;
 
   /**
    * @var string
    */
-  public $location;
+  private $location;
 
   /**
    * @var string
    */
-  public $jobTitle;
+  private $jobTitle;
 
   /**
    * @var string
    */
-  public $jobTitleFromDb;
+  private $jobTitleFromDB;
 
   /**
    * @var string
    */
-  public $headline;
+  private $headline;
 
   /**
    * @var string
    */
-  public $pros;
+  private $pros;
 
   /**
    * @var string
    */
-  public $cons;
+  private $cons;
 
   /**
    * @var int
    */
-  public $overall;
+  private $overall;
 
   /**
    * @var int
    */
-  public $overallNumeric;
+  private $overallNumeric;
 
   /**
    * @param array $values
@@ -76,5 +76,82 @@ class Review implements ResponseInterface {
     $this->cons = empty($values['cons']) ? '' : $values['cons'];
     $this->overall = empty($values['overall']) ? '' : $values['overall'];
     $this->overallNumeric = empty($values['overallNumeric']) ? '' : $values['overallNumeric'];
+  }
+
+  /**
+   * @return int
+   */
+  public function getId() {
+    return $this->id;
+  }
+
+  /**
+   * @return boolean
+   */
+  public function isCurrentJob() {
+    return $this->currentJob;
+  }
+
+  /**
+   * @return \DateTime
+   */
+  public function getReviewDateTime() {
+    return $this->reviewDateTime;
+  }
+
+  /**
+   * @return string
+   */
+  public function getLocation() {
+    return $this->location;
+  }
+
+  /**
+   * @return string
+   */
+  public function getJobTitle() {
+    return $this->jobTitle;
+  }
+
+  /**
+   * @return string
+   */
+  public function getJobTitleFromDB() {
+    return $this->jobTitleFromDB;
+  }
+
+  /**
+   * @return string
+   */
+  public function getHeadline() {
+    return $this->headline;
+  }
+
+  /**
+   * @return string
+   */
+  public function getPros() {
+    return $this->pros;
+  }
+
+  /**
+   * @return string
+   */
+  public function getCons() {
+    return $this->cons;
+  }
+
+  /**
+   * @return int
+   */
+  public function getOverall() {
+    return $this->overall;
+  }
+
+  /**
+   * @return int
+   */
+  public function getOverallNumeric() {
+    return $this->overallNumeric;
   }
 }

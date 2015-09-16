@@ -4,13 +4,34 @@ namespace Glassdoor\ResponseObject;
 
 
 class JobProgressionResponse implements ResponseInterface {
-  public $job_title;
-  public $currency_code;
-  public $currency_symbol;
-  public $pay_log;
-  public $pay_median;
-  public $pay_high;
-  public $job_progressions;
+  /**
+   * @var string
+   */
+  private $job_title;
+  /**
+   * @var string
+   */
+  private $currency_code;
+  /**
+   * @var string
+   */
+  private $currency_symbol;
+  /**
+   * @var string
+   */
+  private $pay_log;
+  /**
+   * @var string
+   */
+  private $pay_median;
+  /**
+   * @var string
+   */
+  private $pay_high;
+  /**
+   * @var JobProgression[]
+   */
+  private $job_progressions;
 
   public function __construct(array $values) {
     $this->job_title = empty($values['jobTitle']) ? '' : $values['jobTitle'];
@@ -26,5 +47,54 @@ class JobProgressionResponse implements ResponseInterface {
         $this->job_progressions[] = new JobProgression($progression);
       }
     }
+  }
+
+  /**
+   * @return string
+   */
+  public function getJobTitle() {
+    return $this->job_title;
+  }
+
+  /**
+   * @return string
+   */
+  public function getCurrencyCode() {
+    return $this->currency_code;
+  }
+
+  /**
+   * @return string
+   */
+  public function getCurrencySymbol() {
+    return $this->currency_symbol;
+  }
+
+  /**
+   * @return string
+   */
+  public function getPayLog() {
+    return $this->pay_log;
+  }
+
+  /**
+   * @return string
+   */
+  public function getPayMedian() {
+    return $this->pay_median;
+  }
+
+  /**
+   * @return string
+   */
+  public function getPayHigh() {
+    return $this->pay_high;
+  }
+
+  /**
+   * @return JobProgression[]
+   */
+  public function getJobProgressions() {
+    return $this->job_progressions;
   }
 }

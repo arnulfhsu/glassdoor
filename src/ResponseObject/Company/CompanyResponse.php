@@ -10,44 +10,44 @@ class CompanyResponse implements ResponseInterface {
   /**
    * @var Uri
    */
-  public $attributionURL;
+  private $attributionURL;
   /**
    * @var int
    */
-  public $currentPageNumber;
+  private $currentPageNumber;
   /**
    * @var int
    */
-  public $totalNumberOfPages;
+  private $totalNumberOfPages;
   /**
    * @var int
    */
-  public $totalRecordCount;
+  private $totalRecordCount;
   /**
    * @var string
    */
-  public $locationString;
+  private $locationString;
   /**
    * @var int
    */
-  public $locationId;
+  private $locationId;
   /**
    * @var string
    */
-  public $locationShortName;
+  private $locationShortName;
   /**
    * @var string
    */
-  public $locationLongName;
+  private $locationLongName;
   /**
    * @var string
    */
-  public $locationType;
+  private $locationType;
 
   /**
    * @var Company[]
    */
-  public $companies;
+  private $companies;
 
   public function __construct(array $values) {
     $this->attributionURL = empty($values['attributionURL']) ? NULL : new Uri($values['attributionURL']);
@@ -66,5 +66,76 @@ class CompanyResponse implements ResponseInterface {
         $this->companies[] = new Company($company);
       }
     }
+  }
+
+
+  /**
+   * @return Uri
+   */
+  public function getAttributionURL() {
+    return $this->attributionURL;
+  }
+
+  /**
+   * @return int
+   */
+  public function getCurrentPageNumber() {
+    return $this->currentPageNumber;
+  }
+
+  /**
+   * @return int
+   */
+  public function getTotalNumberOfPages() {
+    return $this->totalNumberOfPages;
+  }
+
+  /**
+   * @return int
+   */
+  public function getTotalRecordCount() {
+    return $this->totalRecordCount;
+  }
+
+  /**
+   * @return string
+   */
+  public function getLocationString() {
+    return $this->locationString;
+  }
+
+  /**
+   * @return int
+   */
+  public function getLocationId() {
+    return $this->locationId;
+  }
+
+  /**
+   * @return string
+   */
+  public function getLocationShortName() {
+    return $this->locationShortName;
+  }
+
+  /**
+   * @return string
+   */
+  public function getLocationLongName() {
+    return $this->locationLongName;
+  }
+
+  /**
+   * @return string
+   */
+  public function getLocationType() {
+    return $this->locationType;
+  }
+
+  /**
+   * @return Company[]
+   */
+  public function getCompanies() {
+    return $this->companies;
   }
 }

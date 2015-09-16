@@ -6,10 +6,23 @@ namespace Glassdoor\ResponseObject;
 use Glassdoor\Error\GlassDooorResponseException;
 
 class Image implements ResponseInterface {
-  public $src;
-  public $height;
-  public $weight;
+  /**
+   * @var string
+   */
+  private $src;
+  /**
+   * @var int
+   */
+  private $height;
+  /**
+   * @var int
+   */
+  private $weight;
 
+  /**
+   * @param array $values
+   * @throws \Glassdoor\Error\GlassDooorResponseException
+   */
   public function __construct(array $values) {
     if (empty($values['src']) ||
       empty($values['height']) ||
@@ -23,5 +36,25 @@ class Image implements ResponseInterface {
     $this->weight = $values['weight'];
   }
 
+  /**
+   * @return string
+   */
+  public function getSrc() {
+    return $this->src;
+  }
+
+  /**
+   * @return int
+   */
+  public function getHeight() {
+    return $this->height;
+  }
+
+  /**
+   * @return int
+   */
+  public function getWeight() {
+    return $this->weight;
+  }
 
 }
