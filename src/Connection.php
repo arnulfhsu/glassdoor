@@ -51,7 +51,10 @@ final class Connection {
     $params['action'] = $action->action();
 
     // Allow any overrides
-    $params = $params + $parts['query'];
+    if (!empty($parts['query'])) {
+      parse_str($parts['query'], $query_params);
+      array_merge($params, $query_params);
+    }
 
     $parts['query'] = http_build_query($params);
 
