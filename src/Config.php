@@ -51,7 +51,7 @@ final class Config {
       throw new GlassDoorConfigException('Response Format must be json or xml.');
     }
 
-    $this->respose_format = $response_format;
+    $this->response_format = $response_format;
   }
 
   /**

@@ -90,8 +90,14 @@ final class Connection {
 
     $body = json_decode($response->getBody(), TRUE);
 
-    if ($body['status'] !== 'OK') {
-      throw new GlassDooorResponseException($body['status'], $response->getStatusCode());
+    if (!$body || $body['status'] !== 'OK') {
+      if ($body) {
+        $status = $body['status'];
+      }
+      else {
+        $status = $response->getReasonPhrase();
+      }
+      throw new GlassDooorResponseException($status, $response->getStatusCode());
     }
 
     return $action->buildResponse($body, $response);
