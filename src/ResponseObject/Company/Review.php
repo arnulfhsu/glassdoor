@@ -5,7 +5,7 @@ namespace Glassdoor\ResponseObject\Company;
 
 use Glassdoor\ResponseObject\ResponseInterface;
 
-class Review implements ResponseInterface {
+class Review {
   /**
    * @var int
    */

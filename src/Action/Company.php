@@ -5,6 +5,8 @@ namespace Glassdoor\Action;
 
 use Glassdoor\Error\GlassdoorException;
 use Glassdoor\ResponseObject\Company\CompanyResponse;
+use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 
 class Company implements ActionInterface {
   private $query;
@@ -136,9 +138,10 @@ class Company implements ActionInterface {
    * Build the Response Object
    *
    * @param array $body
+   * @param \Psr\Http\Message\ResponseInterface $response
    * @return \Glassdoor\ResponseObject\ResponseInterface
    */
-  public function buildResponse(array $body) {
+  public function buildResponse(array $body, Response $response) {
     $companies = empty($body['response']['employers']) ? [] : $body['response']['employers'];
 
     $values = $body['result'];
@@ -149,6 +152,8 @@ class Company implements ActionInterface {
     $values['locationShortName'] = isset($values['lashedLocation']['locationShortName']) ? isset($values['lashedLocation']['locationShortName']) : NULL;
     $values['locationType'] = isset($values['lashedLocation']['locationType']) ? isset($values['lashedLocation']['locationType']) : NULL;
 
-    return new CompanyResponse($values);
+    $return = new CompanyResponse($values);
+    $return->setResponse($response);
+    return $return;
   }
 }

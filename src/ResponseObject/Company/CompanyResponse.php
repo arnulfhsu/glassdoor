@@ -4,6 +4,7 @@ namespace Glassdoor\ResponseObject\Company;
 
 
 use Glassdoor\ResponseObject\ResponseInterface;
+use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
 
 class CompanyResponse implements ResponseInterface {
@@ -48,8 +49,19 @@ class CompanyResponse implements ResponseInterface {
    * @var Company[]
    */
   private $companies;
+  /**
+   * @var Response
+   */
+  private $response;
 
-  public function __construct(array $values) {
+  /**
+   * @var Response
+   */
+  private $resposne;
+
+  public function __construct(array $values, Response $response) {
+    $this->response = $response;
+
     $this->attributionURL = empty($values['attributionURL']) ? NULL : new Uri($values['attributionURL']);
     $this->currentPageNumber = empty($values['currentPageNumber']) ? 1 : $values['currentPageNumber'];
     $this->currentPageNumber = empty($values['currentPageNumber']) ? 1 : $values['currentPageNumber'];
@@ -137,5 +149,14 @@ class CompanyResponse implements ResponseInterface {
    */
   public function getCompanies() {
     return $this->companies;
+  }
+
+  /**
+   * The Guzzle response
+   *
+   * @return Response
+   */
+  public function getResponse() {
+    return $this->resposne;
   }
 }

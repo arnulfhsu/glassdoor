@@ -5,6 +5,8 @@ namespace Glassdoor\Action;
 
 use Glassdoor\Error\GlassdoorException;
 use Glassdoor\ResponseObject\JobProgressionResponse;
+use Glassdoor\ResponseObject\ResponseInterface;
+use GuzzleHttp\Psr7\Response;
 
 class JobProgression implements ActionInterface {
   private $job_title;
@@ -79,9 +81,10 @@ class JobProgression implements ActionInterface {
    * Build the Response Object
    *
    * @param array $body
+   * @param \GuzzleHttp\Psr7\Response $response
    * @return \Glassdoor\ResponseObject\ResponseInterface
    */
-  public function buildResponse(array $body) {
+  public function buildResponse(array $body, Response $response) {
     $progressions = empty($body['response']['results']) ? [] : $body['response']['results'];
 
     // Clone the array
@@ -90,6 +93,6 @@ class JobProgression implements ActionInterface {
 
     $values['progressions'] = $progressions;
 
-    return new JobProgressionResponse($values);
+    return new JobProgressionResponse($values, $response);
   }
 }

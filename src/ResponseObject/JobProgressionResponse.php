@@ -3,6 +3,8 @@
 namespace Glassdoor\ResponseObject;
 
 
+use GuzzleHttp\Psr7\Response;
+
 class JobProgressionResponse implements ResponseInterface {
   /**
    * @var string
@@ -33,7 +35,14 @@ class JobProgressionResponse implements ResponseInterface {
    */
   private $job_progressions;
 
-  public function __construct(array $values) {
+  /**
+   * @var Response
+   */
+  private $response;
+
+  public function __construct(array $values, Response $response) {
+    $this->response = $response;
+
     $this->job_title = empty($values['jobTitle']) ? '' : $values['jobTitle'];
     $this->currency_code = empty($values['payCurrencyCode']) ? '' : $values['payCurrencyCode'];
     $this->currency_symbol = empty($values['payCurrencySymbol']) ? '' : $values['payCurrencySymbol'];
@@ -96,5 +105,12 @@ class JobProgressionResponse implements ResponseInterface {
    */
   public function getJobProgressions() {
     return $this->job_progressions;
+  }
+
+  /**
+   * @return Response
+   */
+  public function getResponse() {
+    return $this->response;
   }
 }

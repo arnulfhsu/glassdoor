@@ -6,7 +6,7 @@ namespace Glassdoor\ResponseObject\Company;
 use Glassdoor\ResponseObject\Image;
 use Glassdoor\ResponseObject\ResponseInterface;
 
-class Person implements ResponseInterface {
+class Person {
   /**
    * @var string
    */

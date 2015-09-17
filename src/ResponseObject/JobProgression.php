@@ -3,7 +3,7 @@
 namespace Glassdoor\ResponseObject;
 
 
-class JobProgression implements ResponseInterface{
+class JobProgression {
   /**
    * @var string
    */

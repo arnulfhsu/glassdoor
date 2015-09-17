@@ -6,7 +6,7 @@ namespace Glassdoor\ResponseObject\Company;
 use Glassdoor\ResponseObject\ResponseInterface;
 use GuzzleHttp\Psr7\Uri;
 
-class Company implements ResponseInterface {
+class Company {
 
   /**
    * @var int

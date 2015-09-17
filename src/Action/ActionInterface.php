@@ -2,6 +2,7 @@
 
 namespace Glassdoor\Action;
 
+use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 
 interface ActionInterface {
@@ -46,7 +47,8 @@ interface ActionInterface {
    * Build the Response Object
    *
    * @param array $body
-   * @return \Glassdoor\ResponseObject\ResponseInterface
+   * @param \GuzzleHttp\Psr7\Response $response
+   * @return \GuzzleHttp\Psr7\Response
    */
-  public function buildResponse(array $body);
+  public function buildResponse(array $body, Response $response);
 }

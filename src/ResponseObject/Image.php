@@ -5,7 +5,7 @@ namespace Glassdoor\ResponseObject;
 
 use Glassdoor\Error\GlassDooorResponseException;
 
-class Image implements ResponseInterface {
+class Image {
   /**
    * @var string
    */
