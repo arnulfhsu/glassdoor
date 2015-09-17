@@ -152,8 +152,7 @@ class Company implements ActionInterface {
     $values['locationShortName'] = isset($values['lashedLocation']['locationShortName']) ? isset($values['lashedLocation']['locationShortName']) : NULL;
     $values['locationType'] = isset($values['lashedLocation']['locationType']) ? isset($values['lashedLocation']['locationType']) : NULL;
 
-    $return = new CompanyResponse($values);
-    $return->setResponse($response);
+    $return = new CompanyResponse($values, $response);
     return $return;
   }
 }
