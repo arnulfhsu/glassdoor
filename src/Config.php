@@ -47,7 +47,7 @@ class Config {
     $this->partner_key = $partner_key;
     $this->base_url = $base_url;
 
-    if ($response_format !== 'json' || $response_format !== 'xml') {
+    if (strtolower($response_format) !== 'json' && strtolower($response_format) !== 'xml') {
       throw new GlassDoorConfigException('Response Format must be json or xml.');
     }
 
