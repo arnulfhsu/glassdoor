@@ -6,7 +6,7 @@ use Glassdoor\Error\GlassDoorConfigException;
 /**
  * Configuration Class
  */
-class Config {
+final class Config {
   /**
    * @var string
    */

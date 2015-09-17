@@ -11,7 +11,7 @@ use GuzzleHttp\Psr7\Uri;
 /**
  * Makes the calls to Glassdoor
  */
-class Connection {
+final class Connection {
   /**
    * @var \Glassdoor\Config
    */
@@ -91,6 +91,6 @@ class Connection {
       throw new GlassDooorResponseException($body['status'], $response->getStatusCode());
     }
 
-    return $action->buildResponse($body);
+    return $action->buildResponse($body, $response);
   }
 }
