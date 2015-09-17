@@ -65,4 +65,6 @@ $connection->setHandlerStack($stack)
 
 ## Actions
 
-Currently only the [JobProgression](http://www.glassdoor.com/api/jobsApiActions.htm#JobProgression) is implemented.
+Implemented Endpoinsts:
+ - [JobProgression](http://www.glassdoor.com/api/jobsApiActions.htm#JobProgression)
+ - [Company Search](http://www.glassdoor.com/api/companiesApiActions.htm#CompanySearch)
