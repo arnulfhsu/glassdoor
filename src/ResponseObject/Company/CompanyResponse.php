@@ -54,11 +54,6 @@ class CompanyResponse implements ResponseInterface {
    */
   private $response;
 
-  /**
-   * @var Response
-   */
-  private $resposne;
-
   public function __construct(array $values, Response $response) {
     $this->response = $response;
 
@@ -157,6 +152,6 @@ class CompanyResponse implements ResponseInterface {
    * @return Response
    */
   public function getResponse() {
-    return $this->resposne;
+    return $this->response;
   }
 }
