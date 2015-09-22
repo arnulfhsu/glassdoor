@@ -144,7 +144,7 @@ class Company implements ActionInterface {
   public function buildResponse(array $body, Response $response) {
     $companies = empty($body['response']['employers']) ? [] : $body['response']['employers'];
 
-    $values = $body['result'];
+    $values = $body['response'];
     unset($values['employers']);
 
     $values['companies'] = $companies;
