@@ -24,16 +24,16 @@ class Image {
    * @throws \Glassdoor\Error\GlassDooorResponseException
    */
   public function __construct(array $values) {
-    if (empty($values['src']) &&
-      empty($values['height']) &&
-      empty($values['weight'])) {
+    if (empty($values['src']) ||
+      empty($values['height']) ||
+      empty($values['width'])) {
 
-      throw new GlassDooorResponseException('Image requires src, height and weight');
+      throw new GlassDooorResponseException('Image requires src, height and width');
     }
 
     $this->src = $values['src'];
     $this->height = $values['height'];
-    $this->weight = $values['weight'];
+    $this->weight = $values['width'];
   }
 
   /**
