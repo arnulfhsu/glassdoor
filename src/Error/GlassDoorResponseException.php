@@ -3,6 +3,6 @@
 namespace Glassdoor\Error;
 
 
-class GlassDooorResponseException extends GlassdoorException {
+class GlassDoorResponseException extends GlassdoorException {
 
 }

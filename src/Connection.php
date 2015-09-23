@@ -2,7 +2,7 @@
 
 namespace Glassdoor;
 use Glassdoor\Action\ActionInterface;
-use Glassdoor\Error\GlassDooorResponseException;
+use Glassdoor\Error\GlassDoorResponseException;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
@@ -67,7 +67,7 @@ final class Connection {
    * @param \Glassdoor\Action\ActionInterface $action
    * @return \Glassdoor\ResponseObject\ResponseInterface
    *
-   * @throws \Glassdoor\Error\GlassDooorResponseException
+   * @throws \Glassdoor\Error\GlassDoorResponseException
    */
   public function call(ActionInterface $action) {
     // If a handler is set then use that to build the client
@@ -85,7 +85,7 @@ final class Connection {
     $response = $client->send($request);
 
     if ($response->getStatusCode() !== 200) {
-      throw new GlassDooorResponseException($response->getReasonPhrase(), $response->getStatusCode());
+      throw new GlassDoorResponseException($response->getReasonPhrase(), $response->getStatusCode());
     }
 
     $body = json_decode($response->getBody(), TRUE);
@@ -97,7 +97,7 @@ final class Connection {
       else {
         $status = $response->getReasonPhrase();
       }
-      throw new GlassDooorResponseException($status, $response->getStatusCode());
+      throw new GlassDoorResponseException($status, $response->getStatusCode());
     }
 
     return $action->buildResponse($body, $response);

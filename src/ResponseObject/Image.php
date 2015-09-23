@@ -3,7 +3,7 @@
 namespace Glassdoor\ResponseObject;
 
 
-use Glassdoor\Error\GlassDooorResponseException;
+use Glassdoor\Error\GlassDoorResponseException;
 
 class Image {
   /**
@@ -21,14 +21,14 @@ class Image {
 
   /**
    * @param array $values
-   * @throws \Glassdoor\Error\GlassDooorResponseException
+   * @throws \Glassdoor\Error\GlassDoorResponseException
    */
   public function __construct(array $values) {
     if (empty($values['src']) ||
       empty($values['height']) ||
       empty($values['width'])) {
 
-      throw new GlassDooorResponseException('Image requires src, height and width');
+      throw new GlassDoorResponseException('Image requires src, height and width');
     }
 
     $this->src = $values['src'];
