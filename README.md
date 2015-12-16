@@ -7,13 +7,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require bettwerweekdays/glassdoor "*"
+php composer.phar require betterweekdays/glassdoor "*"
 ```
 
 or add
 
 ```
-"bettwerweekdays/glassdoor": "*"
+"betterweekdays/glassdoor": "*"
 ```
 
 to the require section of your `composer.json` file.
