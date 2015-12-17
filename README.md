@@ -63,6 +63,14 @@ $stack = HandlerStack::create($handler); // Wrap w/ middleware
 $connection->setHandlerStack($stack)
 ```
 
+## Running Unit Tests
+First, install any composer dependencies by running `composer install`.
+
+Next, from the root directory run `php vendor/bin/phpunit` or simply `phpunit` 
+if you've set up [global install](https://phpunit.de/manual/current/en/installation.html).
+
+If you're green, you're good!
+
 ## Actions
 
 Implemented Endpoinsts:
