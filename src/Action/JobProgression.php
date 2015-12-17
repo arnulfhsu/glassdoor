@@ -41,7 +41,7 @@ class JobProgression implements ActionInterface {
    * @throws \Glassdoor\Error\GlassdoorException
    */
   public function addParam($key, $value) {
-    if ($key !== 'job_title' || $key !== 'country_id') {
+    if ($key !== 'job_title' && $key !== 'country_id') {
       throw new GlassdoorException('Job Progression Param can only be job_title or country_id');
     }
 
