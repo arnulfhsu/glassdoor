@@ -3,7 +3,6 @@
 namespace Glassdoor\Tests;
 
 use Glassdoor\Action\JobProgression;
-use Glassdoor\GlassdoorException;
 use Glassdoor\Tests\Fixture\JobProgression as JobProgressionFixture;
 
 class JobProgressionTest extends \PHPUnit_Framework_TestCase {
@@ -19,7 +18,7 @@ class JobProgressionTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException        GlassdoorException
+   * @expectedException        Glassdoor\Error\GlassdoorException
    * @expectedExceptionMessage job_title Required for JobProgression Action
    */
   public function testParamTitleError() {
@@ -27,7 +26,7 @@ class JobProgressionTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException        GlassdoorException
+   * @expectedException        Glassdoor\Error\GlassdoorException
    * @expectedExceptionMessage Job Progression Param can only be job_title or country_id
    */
   public function testInvalidKey() {
@@ -39,7 +38,7 @@ class JobProgressionTest extends \PHPUnit_Framework_TestCase {
 
     $body = JobProgressionFixture::getResponseBody();
 
-    $response = $action->buildResponse($body);
+    $response = $action->buildResponse($body, new \GuzzleHttp\Psr7\Response);
 
     $this->assertInstanceOf('Glassdoor\ResponseObject\JobProgressionResponse', $response, 'Response instance of JobProgressionRespose');
   }

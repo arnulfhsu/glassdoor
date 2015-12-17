@@ -31,7 +31,7 @@ final class Config {
    * @param $response_format
    * @throws \Glassdoor\Error\GlassDoorConfigException
    */
-  public function __construct($partner_id, $partner_key, $base_url, $response_format) {
+  public function __construct($partner_id, $partner_key, $base_url='http://api.glassdoor.com/api/api.htm', $response_format='json') {
     if (empty(trim($partner_id)) ||
         empty(trim($partner_key)) ||
         empty(trim($base_url))) {

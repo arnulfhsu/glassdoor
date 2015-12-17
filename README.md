@@ -7,13 +7,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require bettwerweekdays/glassdoor "*"
+php composer.phar require betterweekdays/glassdoor "*"
 ```
 
 or add
 
 ```
-"bettwerweekdays/glassdoor": "*"
+"betterweekdays/glassdoor": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -62,6 +62,14 @@ $stack = HandlerStack::create($handler); // Wrap w/ middleware
 
 $connection->setHandlerStack($stack)
 ```
+
+## Running Unit Tests
+First, install any composer dependencies by running `composer install`.
+
+Next, from the root directory run `php vendor/bin/phpunit` or simply `phpunit` 
+if you've set up [global install](https://phpunit.de/manual/current/en/installation.html).
+
+If you're green, you're good!
 
 ## Actions
 

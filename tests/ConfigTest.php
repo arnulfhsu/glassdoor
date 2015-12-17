@@ -3,7 +3,6 @@
 namespace Glassdoor\Tests;
 
 use Glassdoor\Config;
-use Glassdoor\Error\GlassDoorConfigException;
 
 class ConfigTest extends \PHPUnit_Framework_TestCase {
 
@@ -26,7 +25,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException        GlassDoorConfigException
+   * @expectedException        Glassdoor\Error\GlassDoorConfigException
    * @expectedExceptionMessage Partner Id, key and Base URL are required.
    */
   public function testEmptyString() {
@@ -34,7 +33,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException        GlassDoorConfigException
+   * @expectedException        Glassdoor\Error\GlassDoorConfigException
    * @expectedExceptionMessage Partner Id, key and Base URL are required.
    */
   public function testNullString() {
@@ -42,7 +41,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException        GlassDoorConfigException
+   * @expectedException        Glassdoor\Error\GlassDoorConfigException
    * @expectedExceptionMessage Base URL must be a valid URL
    */
   public function testBaseUrl() {
@@ -50,10 +49,10 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
   }
 
   /**
-   * @expectedException        GlassDoorConfigException
+   * @expectedException        Glassdoor\Error\GlassDoorConfigException
    * @expectedExceptionMessage Response Format must be json or xml.
    */
   public function testFormat() {
-    new Config(NULL, 123, 'http://google.com', 'hi mom');
+    new Config(1234, 123, 'http://google.com', 'hi mom');
   }
 }
