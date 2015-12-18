@@ -69,6 +69,8 @@ First, install any composer dependencies by running `composer install`.
 Next, from the root directory run `php vendor/bin/phpunit` or simply `phpunit` 
 if you've set up [global install](https://phpunit.de/manual/current/en/installation.html).
 
+To run tests with code coverage, run `phpunit --coverage-text`.
+
 If you're green, you're good!
 
 ## Actions
