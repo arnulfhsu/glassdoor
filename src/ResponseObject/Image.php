@@ -17,7 +17,7 @@ class Image {
   /**
    * @var int
    */
-  private $weight;
+  private $width;
 
   /**
    * @param array $values
@@ -33,7 +33,7 @@ class Image {
 
     $this->src = $values['src'];
     $this->height = $values['height'];
-    $this->weight = $values['width'];
+    $this->width = $values['width'];
   }
 
   /**
@@ -53,8 +53,8 @@ class Image {
   /**
    * @return int
    */
-  public function getWeight() {
-    return $this->weight;
+  public function getWidth() {
+    return $this->width;
   }
 
 }
