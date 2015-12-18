@@ -12,7 +12,6 @@ class ImageTest extends \PHPUnit_Framework_TestCase {
             'src' => uniqid(),
             'height' => uniqid(),
             'width' => uniqid(),
-            'weight' => uniqid(),
         ];
 
         $this->image = new Image($this->values);
@@ -42,11 +41,10 @@ class ImageTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($this->values['height'], $result);
     }
 
-    public function testItGetsImageWeight()
+    public function testItGetsImageWidth()
     {
-        // Not working, might be a bug.
-        // $result = $this->image->getWeight();
-        // $this->assertEquals($this->values['weight'], $result);
+        $result = $this->image->getWidth();
+        $this->assertEquals($this->values['width'], $result);
     }
     
 }
