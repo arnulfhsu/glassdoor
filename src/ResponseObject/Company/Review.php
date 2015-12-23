@@ -1,10 +1,13 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\ResponseObject\Company;
-
-
-use Glassdoor\ResponseObject\ResponseInterface;
-
+/**
+ *
+ */
 class Review {
   /**
    * @var int
@@ -154,4 +157,5 @@ class Review {
   public function getOverallNumeric() {
     return $this->overallNumeric;
   }
+
 }

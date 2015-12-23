@@ -1,12 +1,18 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\ResponseObject\Company;
 
 
 use Glassdoor\ResponseObject\ResponseInterface;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
-
+/**
+ *
+ */
 class CompanyResponse implements ResponseInterface {
   /**
    * @var Uri
@@ -54,6 +60,9 @@ class CompanyResponse implements ResponseInterface {
    */
   private $response;
 
+  /**
+   *
+   */
   public function __construct(array $values, Response $response) {
     $this->response = $response;
 
@@ -69,7 +78,7 @@ class CompanyResponse implements ResponseInterface {
 
     $this->companies = [];
     if (!empty($values['companies']) && is_array($values['companies'])) {
-      foreach($values['companies'] as $company) {
+      foreach ($values['companies'] as $company) {
         $this->companies[] = new Company($company);
       }
     }
@@ -147,11 +156,12 @@ class CompanyResponse implements ResponseInterface {
   }
 
   /**
-   * The Guzzle response
+   * The Guzzle response.
    *
    * @return Response
    */
   public function getResponse() {
     return $this->response;
   }
+
 }

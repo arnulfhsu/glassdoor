@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\ResponseObject\Company;
 
 
-use Glassdoor\ResponseObject\ResponseInterface;
 use GuzzleHttp\Psr7\Uri;
-
+/**
+ *
+ */
 class Company {
 
   /**
@@ -81,6 +86,9 @@ class Company {
    */
   private $ceo;
 
+  /**
+   *
+   */
   public function __construct(array $values) {
     $this->id = empty($values['id']) ? '' : $values['id'];
     $this->name = empty($values['name']) ? '' : $values['name'];
@@ -233,4 +241,5 @@ class Company {
   public function getCeo() {
     return $this->ceo;
   }
+
 }

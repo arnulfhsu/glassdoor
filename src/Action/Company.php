@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\Action;
 
 
 use Glassdoor\Error\GlassdoorException;
 use Glassdoor\ResponseObject\Company\CompanyResponse;
 use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-
+/**
+ *
+ */
 class Company implements ActionInterface {
   private $query;
   private $location_search;
@@ -18,6 +23,9 @@ class Company implements ActionInterface {
   private $page_size = 20;
 
 
+  /**
+   *
+   */
   public static function params() {
     return [
       'query',
@@ -30,22 +38,37 @@ class Company implements ActionInterface {
     ];
   }
 
+  /**
+   *
+   */
   public function filterByState($state) {
     return $this->addParam('state', $state);
   }
 
+  /**
+   *
+   */
   public function filterByCity($city) {
     return $this->addParam('city', $city);
   }
 
+  /**
+   *
+   */
   public function filterByCountry($country) {
     return $this->addParam('country', $country);
   }
 
+  /**
+   *
+   */
   public function searchByLocation($location) {
     return $this->addParam('location_search', $location);
   }
 
+  /**
+   *
+   */
   public function searchByCompanyOrJob($search) {
     return $this->addParam('queyr', $search);
   }
@@ -79,7 +102,7 @@ class Company implements ActionInterface {
   }
 
   /**
-   * The URL query parameters
+   * The URL query parameters.
    *
    * @return array
    */
@@ -117,7 +140,7 @@ class Company implements ActionInterface {
   }
 
   /**
-   * The HTTP method to use for the call
+   * The HTTP method to use for the call.
    *
    * @return string
    */
@@ -135,10 +158,11 @@ class Company implements ActionInterface {
   }
 
   /**
-   * Build the Response Object
+   * Build the Response Object.
    *
    * @param array $body
    * @param \GuzzleHttp\Psr7\Response $response
+   *
    * @return \Glassdoor\ResponseObject\Company\CompanyResponse
    */
   public function buildResponse(array $body, Response $response) {
@@ -155,4 +179,5 @@ class Company implements ActionInterface {
     $return = new CompanyResponse($values, $response);
     return $return;
   }
+
 }

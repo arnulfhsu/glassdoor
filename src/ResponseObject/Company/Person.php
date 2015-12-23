@@ -1,11 +1,16 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\ResponseObject\Company;
 
 
 use Glassdoor\ResponseObject\Image;
-use Glassdoor\ResponseObject\ResponseInterface;
-
+/**
+ *
+ */
 class Person {
   /**
    * @var string
@@ -28,6 +33,9 @@ class Person {
    */
   private $image;
 
+  /**
+   *
+   */
   public function __construct(array $values) {
     $this->name = empty($values['name']) ? '' : $values['name'];
     $this->title = empty($values['title']) ? '' : $values['title'];

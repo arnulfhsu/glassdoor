@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\Action;
 
 
 use Glassdoor\Error\GlassdoorException;
 use Glassdoor\ResponseObject\JobProgressionResponse;
-use Glassdoor\ResponseObject\ResponseInterface;
 use GuzzleHttp\Psr7\Response;
-
+/**
+ *
+ */
 class JobProgression implements ActionInterface {
   private $job_title;
   private $country_id = 1;
@@ -26,7 +31,7 @@ class JobProgression implements ActionInterface {
 
     return [
       'jobTitle' => $this->job_title,
-      'countryId' => $this->country_id
+      'countryId' => $this->country_id,
     ];
   }
 
@@ -36,6 +41,7 @@ class JobProgression implements ActionInterface {
    *
    * @param $key
    * @param $value
+   *
    * @return $this
    *
    * @throws \Glassdoor\Error\GlassdoorException
@@ -60,7 +66,7 @@ class JobProgression implements ActionInterface {
   }
 
   /**
-   * The HTTP method to use for the call
+   * The HTTP method to use for the call.
    *
    * @return string
    */
@@ -78,16 +84,17 @@ class JobProgression implements ActionInterface {
   }
 
   /**
-   * Build the Response Object
+   * Build the Response Object.
    *
    * @param array $body
    * @param \GuzzleHttp\Psr7\Response $response
+   *
    * @return \Glassdoor\ResponseObject\ResponseInterface
    */
   public function buildResponse(array $body, Response $response) {
     $progressions = empty($body['response']['results']) ? [] : $body['response']['results'];
 
-    // Clone the array
+    // Clone the array.
     $values = $body['response'];
     unset($values['result']);
 
@@ -95,4 +102,5 @@ class JobProgression implements ActionInterface {
 
     return new JobProgressionResponse($values, $response);
   }
+
 }

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor;
 use Glassdoor\Action\ActionInterface;
 use Glassdoor\Error\GlassDoorResponseException;
@@ -9,7 +13,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
 
 /**
- * Makes the calls to Glassdoor
+ * Makes the calls to Glassdoor.
  */
 final class Connection {
   /**
@@ -28,14 +32,18 @@ final class Connection {
     $this->config = $config;
   }
 
+  /**
+   *
+   */
   public function setHandlerStack(HandlerStack $stack) {
     $this->stack = $stack;
   }
 
   /**
-   * Build a URI object for the Request
+   * Build a URI object for the Request.
    *
    * @param \Glassdoor\Action\ActionInterface $action
+   *
    * @return \GuzzleHttp\Psr7\Uri
    */
   private function buildUri(ActionInterface $action) {
@@ -50,7 +58,7 @@ final class Connection {
     $params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
     $params['action'] = $action->action();
 
-    // Allow any overrides
+    // Allow any overrides.
     if (!empty($parts['query'])) {
       parse_str($parts['query'], $query_params);
       array_merge($params, $query_params);
@@ -62,15 +70,16 @@ final class Connection {
   }
 
   /**
-   * Make a call to the GlassDoor API
+   * Make a call to the GlassDoor API.
    *
    * @param \Glassdoor\Action\ActionInterface $action
+   *
    * @return \Glassdoor\ResponseObject\ResponseInterface
    *
    * @throws \Glassdoor\Error\GlassDoorResponseException
    */
   public function call(ActionInterface $action) {
-    // If a handler is set then use that to build the client
+    // If a handler is set then use that to build the client.
     if ($this->stack) {
       $client = new Client([
         'handler' => $this->stack,
@@ -102,4 +111,5 @@ final class Connection {
 
     return $action->buildResponse($body, $response);
   }
+
 }

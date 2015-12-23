@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\ResponseObject;
 
 
 use GuzzleHttp\Psr7\Response;
-
+/**
+ *
+ */
 class JobProgressionResponse implements ResponseInterface {
   /**
    * @var string
@@ -40,6 +46,9 @@ class JobProgressionResponse implements ResponseInterface {
    */
   private $response;
 
+  /**
+   *
+   */
   public function __construct(array $values, Response $response) {
     $this->response = $response;
 
@@ -52,7 +61,7 @@ class JobProgressionResponse implements ResponseInterface {
 
     $this->job_progressions = [];
     if (!empty($values['progressions']) && is_array($values['progressions'])) {
-      foreach($values['progressions'] as $progression) {
+      foreach ($values['progressions'] as $progression) {
         $this->job_progressions[] = new JobProgression($progression);
       }
     }
@@ -113,4 +122,5 @@ class JobProgressionResponse implements ResponseInterface {
   public function getResponse() {
     return $this->response;
   }
+
 }

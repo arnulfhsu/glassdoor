@@ -1,16 +1,22 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\Action;
 
 use GuzzleHttp\Psr7\Response;
-use Psr\Http\Message\ResponseInterface;
-
+/**
+ *
+ */
 interface ActionInterface {
   /**
    * Set a url param.
    *
    * @param $key
    * @param $value
+   *
    * @return $this
    */
   public function addParam($key, $value);
@@ -23,14 +29,14 @@ interface ActionInterface {
   public static function action();
 
   /**
-   * The URL query parameters
+   * The URL query parameters.
    *
    * @return array
    */
   public function getParams();
 
   /**
-   * The HTTP method to use for the call
+   * The HTTP method to use for the call.
    *
    * @return string
    */
@@ -44,11 +50,13 @@ interface ActionInterface {
   public function getVersion();
 
   /**
-   * Build the Response Object
+   * Build the Response Object.
    *
    * @param array $body
    * @param \GuzzleHttp\Psr7\Response $response
+   *
    * @return \GuzzleHttp\Psr7\Response
    */
   public function buildResponse(array $body, Response $response);
+
 }

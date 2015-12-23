@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\ResponseObject;
 
 
 use Glassdoor\Error\GlassDoorResponseException;
-
+/**
+ *
+ */
 class Image {
   /**
    * @var string
