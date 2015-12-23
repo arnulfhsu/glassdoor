@@ -2,44 +2,63 @@
 
 /**
  * @file
+ * Response object from JobProgression endpoint.
  */
 
 namespace Glassdoor\ResponseObject;
 
 
 use GuzzleHttp\Psr7\Response;
+
 /**
- *
+ * JobProgressionResponse class.
  */
 class JobProgressionResponse implements ResponseInterface {
+
+  /**
+   * Job title.
+   *
+   * @var string
+   */
+  private $jobTitle;
+
+  /**
+   * Currency code.
+   *
+   * @var string
+   */
+  private $currencyCode;
+
+  /**
+   * Currency Symbol.
+   *
+   * @var string
+   */
+
+  private $currencySymbol;
+
+  /**
+   * Pay log.
+   *
+   * @var string
+   */
+  private $payLog;
+
+  /**
+   * Pay median.
+   *
+   * @var string
+   */
+  private $payMedian;
+
   /**
    * @var string
    */
-  private $job_title;
-  /**
-   * @var string
-   */
-  private $currency_code;
-  /**
-   * @var string
-   */
-  private $currency_symbol;
-  /**
-   * @var string
-   */
-  private $pay_log;
-  /**
-   * @var string
-   */
-  private $pay_median;
-  /**
-   * @var string
-   */
-  private $pay_high;
+  private $payHigh;
   /**
    * @var JobProgression[]
    */
-  private $job_progressions;
+  private $jobProgressions;
 
   /**
    * @var Response
@@ -52,12 +71,12 @@ class JobProgressionResponse implements ResponseInterface {
   public function __construct(array $values, Response $response) {
     $this->response = $response;
 
-    $this->job_title = empty($values['jobTitle']) ? '' : $values['jobTitle'];
-    $this->currency_code = empty($values['payCurrencyCode']) ? '' : $values['payCurrencyCode'];
-    $this->currency_symbol = empty($values['payCurrencySymbol']) ? '' : $values['payCurrencySymbol'];
-    $this->pay_log = empty($values['payLow']) ? '' : $values['payLow'];
-    $this->pay_high = empty($values['payHigh']) ? '' : $values['payHigh'];
-    $this->pay_median = empty($values['payMedian']) ? '' : $values['payMedian'];
+    $this->jobTitle = empty($values['jobTitle']) ? '' : $values['jobTitle'];
+    $this->currencyCode = empty($values['payCurrencyCode']) ? '' : $values['payCurrencyCode'];
+    $this->currencySymbol = empty($values['payCurrencySymbol']) ? '' : $values['payCurrencySymbol'];
+    $this->payLog = empty($values['payLow']) ? '' : $values['payLow'];
+    $this->payHigh = empty($values['payHigh']) ? '' : $values['payHigh'];
+    $this->payMedian = empty($values['payMedian']) ? '' : $values['payMedian'];
 
     $this->job_progressions = [];
     if (!empty($values['progressions']) && is_array($values['progressions'])) {
@@ -71,7 +90,7 @@ class JobProgressionResponse implements ResponseInterface {
    * @return string
    */
   public function getJobTitle() {
-    return $this->job_title;
+    return $this->jobTitle;
   }
 
   /**
