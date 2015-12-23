@@ -75,6 +75,12 @@ To run acceptance (end-to-end) tests with your API credentials, run `PARTNER_ID=
 
 If you're green, you're good!
 
+## Code Standards
+We are using [Drupal's Code Standards](https://www.drupal.org/coding-standards) 
+and [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) to test for them.
+
+Run the code sniffer using `./vendor/bin/phpcs --standard=./vendor/drupal/coder/coder_sniffer/Drupal src/`
+
 ## Actions
 
 Implemented Endpoinsts:
