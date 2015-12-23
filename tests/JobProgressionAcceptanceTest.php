@@ -9,10 +9,10 @@ use Glassdoor\Connection;
 class JobProgressionAcceptanceTest extends \PHPUnit_Framework_TestCase {
   
     /* 
-     * Company Acceptance test 
+     * JobProgression Acceptance test 
      * Ensures the API client works end-to-end
      */
-    public function testItCanGetCompanyFromApiInRealLife()
+    public function testItCanGetJobProgressionFromApiInRealLife()
     {
         // Check for and set required server variables
         if (!isset($_SERVER['PARTNER_ID'])) {
