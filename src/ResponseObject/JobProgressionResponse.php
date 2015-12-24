@@ -7,7 +7,6 @@
 
 namespace Glassdoor\ResponseObject;
 
-
 use GuzzleHttp\Psr7\Response;
 
 /**
@@ -52,21 +51,28 @@ class JobProgressionResponse implements ResponseInterface {
   private $payMedian;
 
   /**
+   * Pay high.
+   *
    * @var string
    */
   private $payHigh;
+
   /**
-   * @var JobProgression[]
+   * Job progressions.
+   *
+   * @var array
    */
   private $jobProgressions;
 
   /**
+   * Response object.
+   *
    * @var Response
    */
   private $response;
 
   /**
-   *
+   * Constructor.
    */
   public function __construct(array $values, Response $response) {
     $this->response = $response;
@@ -87,56 +93,72 @@ class JobProgressionResponse implements ResponseInterface {
   }
 
   /**
-   * @return string
+   * Job title.
+   *
+   * @var string
    */
   public function getJobTitle() {
     return $this->jobTitle;
   }
 
   /**
-   * @return string
+   * Currency code.
+   *
+   * @var string
    */
   public function getCurrencyCode() {
     return $this->currency_code;
   }
 
   /**
-   * @return string
+   * Currency symbol.
+   *
+   * @var string
    */
   public function getCurrencySymbol() {
     return $this->currency_symbol;
   }
 
   /**
-   * @return string
+   * Pay log.
+   *
+   * @var string
    */
   public function getPayLog() {
     return $this->pay_log;
   }
 
   /**
-   * @return string
+   * Pay median.
+   *
+   * @var string
    */
   public function getPayMedian() {
     return $this->pay_median;
   }
 
   /**
-   * @return string
+   * Pay high.
+   *
+   * @var string
    */
   public function getPayHigh() {
     return $this->pay_high;
   }
 
   /**
-   * @return JobProgression[]
+   * Job progressions array.
+   *
+   * @var array
    */
   public function getJobProgressions() {
     return $this->job_progressions;
   }
 
   /**
-   * @return Response
+   * Response Object.
+   *
+   * @var Response
    */
   public function getResponse() {
     return $this->response;
