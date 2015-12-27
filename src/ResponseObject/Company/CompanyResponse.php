@@ -2,16 +2,17 @@
 
 /**
  * @file
+ * Response object from Company endpoint.
  */
 
 namespace Glassdoor\ResponseObject\Company;
 
-
 use Glassdoor\ResponseObject\ResponseInterface;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
+
 /**
- *
+ * CompanyResponse class.
  */
 class CompanyResponse implements ResponseInterface {
   /**

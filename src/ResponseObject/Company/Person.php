@@ -2,14 +2,16 @@
 
 /**
  * @file
+ * Person object from Company.
  */
 
 namespace Glassdoor\ResponseObject\Company;
 
 
 use Glassdoor\ResponseObject\Image;
+
 /**
- *
+ * Person class.
  */
 class Person {
   /**

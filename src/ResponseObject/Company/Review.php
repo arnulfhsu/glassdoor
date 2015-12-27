@@ -2,11 +2,13 @@
 
 /**
  * @file
+ * Review object from Company.
  */
 
 namespace Glassdoor\ResponseObject\Company;
+
 /**
- *
+ * Review class.
  */
 class Review {
   /**
