@@ -60,7 +60,8 @@ class Image {
   /**
    * Get src attribute.
    *
-   * @var string
+   * @return string
+   *   Attribute.
    */
   public function getSrc() {
     return $this->src;
@@ -69,7 +70,8 @@ class Image {
   /**
    * Height.
    *
-   * @var string
+   * @return string
+   *   Attribute.
    */
   public function getHeight() {
     return $this->height;
@@ -78,7 +80,8 @@ class Image {
   /**
    * Width.
    *
-   * @var string
+   * @return string
+   *   Attribute.
    */
   public function getWidth() {
     return $this->width;

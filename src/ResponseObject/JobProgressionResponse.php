@@ -95,7 +95,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Job title.
    *
-   * @var string
+   * @return string
+   *   Return attribute.
    */
   public function getJobTitle() {
     return $this->jobTitle;
@@ -104,7 +105,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Currency code.
    *
-   * @var string
+   * @return string
+   *   Return attribute.
    */
   public function getCurrencyCode() {
     return $this->currency_code;
@@ -113,7 +115,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Currency symbol.
    *
-   * @var string
+   * @return string
+   *   Return attribute.
    */
   public function getCurrencySymbol() {
     return $this->currency_symbol;
@@ -122,7 +125,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Pay log.
    *
-   * @var string
+   * @return string
+   *   Return attribute.
    */
   public function getPayLog() {
     return $this->pay_log;
@@ -131,7 +135,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Pay median.
    *
-   * @var string
+   * @return string
+   *   Return attribute.
    */
   public function getPayMedian() {
     return $this->pay_median;
@@ -140,7 +145,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Pay high.
    *
-   * @var string
+   * @return string
+   *   Return attribute.
    */
   public function getPayHigh() {
     return $this->pay_high;
@@ -149,7 +155,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Job progressions array.
    *
-   * @var array
+   * @return array
+   *   Return attribute.
    */
   public function getJobProgressions() {
     return $this->job_progressions;
@@ -158,7 +165,8 @@ class JobProgressionResponse implements ResponseInterface {
   /**
    * Response Object.
    *
-   * @var Response
+   * @return Response
+   *   Return attribute.
    */
   public function getResponse() {
     return $this->response;
