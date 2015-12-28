@@ -2,9 +2,11 @@
 
 /**
  * @file
+ * Connection class for Glassdoor API.
  */
 
 namespace Glassdoor;
+
 use Glassdoor\Action\ActionInterface;
 use Glassdoor\Error\GlassDoorResponseException;
 use GuzzleHttp\Client;
@@ -16,24 +18,36 @@ use GuzzleHttp\Psr7\Uri;
  * Makes the calls to Glassdoor.
  */
 final class Connection {
+
   /**
+   * Configuration class.
+   *
    * @var \Glassdoor\Config
    */
   private $config;
+
   /**
+   * Stream handler.
+   *
    * @var HandlerStack|null
    */
   private $stack;
 
   /**
+   * Construction method.
+   *
    * @param \Glassdoor\Config $config
+   *   Configuation class.
    */
   public function __construct(Config $config) {
     $this->config = $config;
   }
 
   /**
+   * Set handler stack.
    *
+   * @param \GuzzleHttp\HandlerStack $stack
+   *   Stack to inject.
    */
   public function setHandlerStack(HandlerStack $stack) {
     $this->stack = $stack;
@@ -43,8 +57,10 @@ final class Connection {
    * Build a URI object for the Request.
    *
    * @param \Glassdoor\Action\ActionInterface $action
+   *   Action to send to API.
    *
    * @return \GuzzleHttp\Psr7\Uri
+   *   Uri object.
    */
   private function buildUri(ActionInterface $action) {
     $parts = parse_url($this->config->getBaseUrl());
@@ -73,10 +89,13 @@ final class Connection {
    * Make a call to the GlassDoor API.
    *
    * @param \Glassdoor\Action\ActionInterface $action
+   *   Action to send to API.
    *
    * @return \Glassdoor\ResponseObject\ResponseInterface
+   *   Response from API.
    *
    * @throws \Glassdoor\Error\GlassDoorResponseException
+   *   Exception.
    */
   public function call(ActionInterface $action) {
     // If a handler is set then use that to build the client.

@@ -2,16 +2,17 @@
 
 /**
  * @file
+ * Action to access the company search API endpoint.
  */
 
 namespace Glassdoor\Action;
 
-
 use Glassdoor\Error\GlassdoorException;
 use Glassdoor\ResponseObject\Company\CompanyResponse;
 use GuzzleHttp\Psr7\Response;
+
 /**
- *
+ * Company class.
  */
 class Company implements ActionInterface {
   private $query;
@@ -22,9 +23,11 @@ class Company implements ActionInterface {
   private $page = 1;
   private $page_size = 20;
 
-
   /**
+   * Return params array.
    *
+   * @return array
+   *   Parameters.
    */
   public static function params() {
     return [
@@ -39,49 +42,68 @@ class Company implements ActionInterface {
   }
 
   /**
+   * Filter companies by state.
    *
+   * @return Company
+   *   This class.
    */
   public function filterByState($state) {
     return $this->addParam('state', $state);
   }
 
   /**
+   * Filter companies by city.
    *
+   * @return Company
+   *   This class.
    */
   public function filterByCity($city) {
     return $this->addParam('city', $city);
   }
 
   /**
+   * Filter companies by country.
    *
+   * @return Company
+   *   This class.
    */
   public function filterByCountry($country) {
     return $this->addParam('country', $country);
   }
 
   /**
+   * Search by location.
    *
+   * @return Company
+   *   This class.
    */
   public function searchByLocation($location) {
     return $this->addParam('location_search', $location);
   }
 
   /**
+   * Search by company or job.
    *
+   * @return Company
+   *   This class.
    */
   public function searchByCompanyOrJob($search) {
     return $this->addParam('queyr', $search);
   }
 
   /**
-   * Set a url param.
+   * Add a new parameter.
    *
-   * @param $key
-   * @param $value
+   * @param string $key
+   *   Parameter key.
+   * @param string $value
+   *   Parameter value.
    *
    * @return $this
+   *   JobProgression object.
    *
    * @throws \Glassdoor\Error\GlassdoorException
+   *   Exception if invalid parameter is added.
    */
   public function addParam($key, $value) {
     if (!in_array($key, self::params())) {
@@ -96,15 +118,17 @@ class Company implements ActionInterface {
    * The name of the action to use in the GD API.
    *
    * @return string
+   *   Name of the action.
    */
   public static function action() {
     return 'employers';
   }
 
   /**
-   * The URL query parameters.
+   * Return params array.
    *
    * @return array
+   *   Parameters.
    */
   public function getParams() {
     $return = [];
@@ -143,6 +167,7 @@ class Company implements ActionInterface {
    * The HTTP method to use for the call.
    *
    * @return string
+   *   GET method for call.
    */
   public function getMethod() {
     return 'GET';
@@ -151,7 +176,8 @@ class Company implements ActionInterface {
   /**
    * Get the Version of the API to use.
    *
-   * @return string
+   * @return int
+   *   API version
    */
   public function getVersion() {
     return 1;
@@ -161,9 +187,12 @@ class Company implements ActionInterface {
    * Build the Response Object.
    *
    * @param array $body
+   *   Body of the response.
    * @param \GuzzleHttp\Psr7\Response $response
+   *   Response object.
    *
-   * @return \Glassdoor\ResponseObject\Company\CompanyResponse
+   * @return \Glassdoor\ResponseObject\ResponseInterface
+   *   Built response.
    */
   public function buildResponse(array $body, Response $response) {
     $companies = empty($body['response']['employers']) ? [] : $body['response']['employers'];
