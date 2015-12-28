@@ -2,38 +2,48 @@
 
 /**
  * @file
+ * Configuration class for Glassdoor API.
  */
 
 namespace Glassdoor;
+
 use Glassdoor\Error\GlassDoorConfigException;
 
 /**
  * Configuration Class.
  */
 final class Config {
+
   /**
-   * @var string
+   * Partner ID.
    */
   private $partner_id;
+
   /**
-   * @var string
+   * Partner Key.
    */
   private $partner_key;
+
   /**
-   * @var string
+   * Base Url.
    */
   private $base_url;
+
   /**
-   * @var string Either 'xml' OR 'json'
+   * Response - either 'xml' OR 'json'
    */
   private $response_format;
 
   /**
+   * Construct method
+   *
    * @param $partner_id
    * @param $partner_key
    * @param $base_url
    * @param $response_format
+   *
    * @throws \Glassdoor\Error\GlassDoorConfigException
+   *   Invalid config.
    */
   public function __construct($partner_id, $partner_key, $base_url = 'http://api.glassdoor.com/api/api.htm', $response_format = 'json') {
     if (empty(trim($partner_id)) ||
