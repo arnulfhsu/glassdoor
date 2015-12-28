@@ -7,36 +7,43 @@
 
 namespace Glassdoor\ResponseObject\Company;
 
-
 use Glassdoor\ResponseObject\Image;
 
 /**
  * Person class.
  */
 class Person {
+
   /**
-   * @var string
+   * Person's name.
    */
   private $name;
+
   /**
-   * @var string
+   * Title of person.
    */
   private $title;
+
   /**
-   * @var float
+   * Percent of raters who approve.
    */
   private $percent_approval;
+
   /**
-   * @var float
+   * Percent of raters who disapprove.
    */
   private $percent_disapproval;
+
   /**
-   * @var \Glassdoor\ResponseObject\Image
+   * Image object.
    */
   private $image;
 
   /**
+   * Construction method.
    *
+   * $values array
+   *   Values to populate.
    */
   public function __construct(array $values) {
     $this->name = empty($values['name']) ? '' : $values['name'];
@@ -50,35 +57,50 @@ class Person {
   }
 
   /**
+   * Get name.
+   *
    * @return string
+   *   Name of person.
    */
   public function getName() {
     return $this->name;
   }
 
   /**
+   * Get title.
+   *
    * @return string
+   *   Title of person.
    */
   public function getTitle() {
     return $this->title;
   }
 
   /**
+   * Get approval percentage.
+   *
    * @return float
+   *   Approval rating.
    */
   public function getPercentApproval() {
     return $this->percent_approval;
   }
 
   /**
+   * Get disapproval percentage.
+   *
    * @return float
+   *   Disapproval rating.
    */
   public function getPercentDisapproval() {
     return $this->percent_disapproval;
   }
 
   /**
-   * @return Image
+   * Get image.
+   *
+   * @return \Glassdoor\ResponseObject\Image
+   *   Image object.
    */
   public function getImage() {
     return $this->image;
