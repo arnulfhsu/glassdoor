@@ -15,54 +15,69 @@ use GuzzleHttp\Psr7\Uri;
  * CompanyResponse class.
  */
 class CompanyResponse implements ResponseInterface {
+
   /**
-   * @var Uri
+   * Glassdoor attribution url.
    */
   private $attributionURL;
+
   /**
-   * @var int
+   * Page number of results.
    */
   private $currentPageNumber;
+
   /**
-   * @var int
+   * Number of pages.
    */
   private $totalNumberOfPages;
+
   /**
-   * @var int
+   * Number of records retrieved.
    */
   private $totalRecordCount;
+
   /**
-   * @var string
+   * Location string.
    */
   private $locationString;
+
   /**
-   * @var int
+   * Location id.
    */
   private $locationId;
+
   /**
-   * @var string
+   * Short location string.
    */
   private $locationShortName;
+
   /**
-   * @var string
+   * Long location string.
    */
   private $locationLongName;
+
   /**
-   * @var string
+   * Location type.
    */
   private $locationType;
 
   /**
-   * @var Company[]
+   * Array of companies.
    */
   private $companies;
+
   /**
-   * @var Response
+   * Response object.
    */
   private $response;
 
   /**
+   * Construct method.
    *
+   * $values array
+   *   Values to populate.
+   * $response \GuzzleHttp\Psr7\Response
+   *   Response object.
    */
   public function __construct(array $values, Response $response) {
     $this->response = $response;
@@ -85,72 +100,101 @@ class CompanyResponse implements ResponseInterface {
     }
   }
 
-
   /**
-   * @return Uri
+   * Get Attribution url.
+   *
+   * @return string
+   *   Attribution url.
    */
   public function getAttributionURL() {
     return $this->attributionURL;
   }
 
   /**
+   * Get Current page number.
+   *
    * @return int
+   *   Page number.
    */
   public function getCurrentPageNumber() {
     return $this->currentPageNumber;
   }
 
   /**
+   * Get total number of pages.
+   *
    * @return int
+   *   Pages.
    */
   public function getTotalNumberOfPages() {
     return $this->totalNumberOfPages;
   }
 
   /**
+   * Get total records.
+   *
    * @return int
+   *   Records.
    */
   public function getTotalRecordCount() {
     return $this->totalRecordCount;
   }
 
   /**
+   * Get location string.
+   *
    * @return string
+   *   Location.
    */
   public function getLocationString() {
     return $this->locationString;
   }
 
   /**
+   * Get location id.
+   *
    * @return int
+   *   Location id.
    */
   public function getLocationId() {
     return $this->locationId;
   }
 
   /**
+   * Get short location string.
+   *
    * @return string
+   *   Short location.
    */
   public function getLocationShortName() {
     return $this->locationShortName;
   }
 
   /**
+   * Get long location string.
+   *
    * @return string
+   *   Long location.
    */
   public function getLocationLongName() {
     return $this->locationLongName;
   }
 
   /**
+   * Get location type.
+   *
    * @return string
+   *   Location type.
    */
   public function getLocationType() {
     return $this->locationType;
   }
 
   /**
-   * @return Company[]
+   * Companies array.
+   *
+   * @return array
+   *   Companies objects.
    */
   public function getCompanies() {
     return $this->companies;
@@ -160,6 +204,7 @@ class CompanyResponse implements ResponseInterface {
    * The Guzzle response.
    *
    * @return Response
+   *   Response object.
    */
   public function getResponse() {
     return $this->response;

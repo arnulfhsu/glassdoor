@@ -27,12 +27,12 @@ class Person {
   /**
    * Percent of raters who approve.
    */
-  private $percent_approval;
+  private $percentApproval;
 
   /**
    * Percent of raters who disapprove.
    */
-  private $percent_disapproval;
+  private $percentDisapproval;
 
   /**
    * Image object.
@@ -48,8 +48,8 @@ class Person {
   public function __construct(array $values) {
     $this->name = empty($values['name']) ? '' : $values['name'];
     $this->title = empty($values['title']) ? '' : $values['title'];
-    $this->percent_approval = empty($values['percent_approval']) ? '' : $values['percent_approval'];
-    $this->percent_disapproval = empty($values['percent_disapproval']) ? '' : $values['percent_disapproval'];
+    $this->percentApproval = empty($values['percent_approval']) ? '' : $values['percent_approval'];
+    $this->percentDisapproval = empty($values['percent_disapproval']) ? '' : $values['percent_disapproval'];
 
     if (!empty($values['image'])) {
       $this->image = new Image($values['image']);
@@ -83,7 +83,7 @@ class Person {
    *   Approval rating.
    */
   public function getPercentApproval() {
-    return $this->percent_approval;
+    return $this->percentApproval;
   }
 
   /**
@@ -93,7 +93,7 @@ class Person {
    *   Disapproval rating.
    */
   public function getPercentDisapproval() {
-    return $this->percent_disapproval;
+    return $this->percentDisapproval;
   }
 
   /**

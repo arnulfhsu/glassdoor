@@ -11,63 +11,64 @@ namespace Glassdoor\ResponseObject\Company;
  * Review class.
  */
 class Review {
+
   /**
-   * @var int
+   * Id of the review.
    */
   private $id;
 
   /**
-   * @var boolean
+   * Current job being reviewed.
    */
   private $currentJob;
 
   /**
-   * @var \DateTime
+   * Date of review.
    */
   private $reviewDateTime;
 
   /**
-   * @var string
+   * Location of review.
    */
   private $location;
 
   /**
-   * @var string
+   * Job title of review.
    */
   private $jobTitle;
 
   /**
-   * @var string
+   * Job title of review from DB.
    */
   private $jobTitleFromDB;
 
   /**
-   * @var string
+   * Headline.
    */
   private $headline;
 
   /**
-   * @var string
+   * Pros of review.
    */
   private $pros;
 
   /**
-   * @var string
+   * Cons of review.
    */
   private $cons;
 
   /**
-   * @var int
+   * Overall rating.
    */
   private $overall;
 
   /**
-   * @var int
+   * Numeric rating.
    */
   private $overallNumeric;
 
   /**
-   * @param array $values
+   * Construct.
    */
   public function __construct(array $values) {
     $this->id = empty($values['id']) ? '' : $values['id'];
@@ -84,77 +85,110 @@ class Review {
   }
 
   /**
+   * Get Id.
+   *
    * @return int
+   *   Id of review.
    */
   public function getId() {
     return $this->id;
   }
 
   /**
-   * @return boolean
+   * Check if reviewer still at job.
+   *
+   * @return bool
+   *   If reviewer is still at job.
    */
   public function isCurrentJob() {
     return $this->currentJob;
   }
 
   /**
+   * Get review date/time.
+   *
    * @return \DateTime
+   *   DateTime of reivew.
    */
   public function getReviewDateTime() {
     return $this->reviewDateTime;
   }
 
   /**
+   * Location of review.
+   *
    * @return string
+   *   Location string.
    */
   public function getLocation() {
     return $this->location;
   }
 
   /**
+   * Job title.
+   *
    * @return string
+   *   String.
    */
   public function getJobTitle() {
     return $this->jobTitle;
   }
 
   /**
+   * Job title from DB.
+   *
    * @return string
+   *   String.
    */
   public function getJobTitleFromDB() {
     return $this->jobTitleFromDB;
   }
 
   /**
+   * Headline of review.
+   *
    * @return string
+   *   String.
    */
   public function getHeadline() {
     return $this->headline;
   }
 
   /**
+   * Pros of review.
+   *
    * @return string
+   *   String.
    */
   public function getPros() {
     return $this->pros;
   }
 
   /**
+   * Cons.
+   *
    * @return string
+   *   String.
    */
   public function getCons() {
     return $this->cons;
   }
 
   /**
-   * @return int
+   * Overall rating.
+   *
+   * @return string
+   *   String.
    */
   public function getOverall() {
     return $this->overall;
   }
 
   /**
+   * Overall rating - numeric.
+   *
    * @return int
+   *   Numberic rating.
    */
   public function getOverallNumeric() {
     return $this->overallNumeric;
