@@ -30,17 +30,21 @@ final class Config {
   private $base_url;
 
   /**
-   * Response - either 'xml' OR 'json'
+   * Response - either 'xml' OR 'json'.
    */
   private $response_format;
 
   /**
-   * Construct method
+   * Construct method.
    *
-   * @param $partner_id
-   * @param $partner_key
-   * @param $base_url
-   * @param $response_format
+   * @param string $partner_id
+   *   Partner id.
+   * @param string $partner_key
+   *   Partner key.
+   * @param string $base_url
+   *   Base url.
+   * @param string $response_format
+   *   Response format desired.
    *
    * @throws \Glassdoor\Error\GlassDoorConfigException
    *   Invalid config.
@@ -69,28 +73,40 @@ final class Config {
   }
 
   /**
+   * Get base url.
+   *
    * @return string
+   *   Base url.
    */
   public function getBaseUrl() {
     return $this->base_url;
   }
 
   /**
+   * Get response format.
+   *
    * @return string
+   *   Format.
    */
   public function getResponseFormat() {
     return $this->response_format;
   }
 
   /**
+   * Get partner id.
+   *
    * @return string
+   *   Partner id.
    */
   public function getPartnerId() {
     return $this->partner_id;
   }
 
   /**
+   * Get partner key.
+   *
    * @return string
+   *   Partner key.
    */
   public function getPartnerKey() {
     return $this->partner_key;
