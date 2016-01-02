@@ -1,5 +1,7 @@
 # API Wrapper for [GlassDoor](http://www.glassdoor.com/api/index.htm)
 
+[![Build Status](https://travis-ci.org/betterweekdays/glassdoor.svg)](https://travis-ci.org/betterweekdays/glassdoor)
+
 ## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
