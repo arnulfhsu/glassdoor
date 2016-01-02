@@ -73,6 +73,8 @@ if you've set up [global install](https://phpunit.de/manual/current/en/installat
 
 To run tests with code coverage, run `phpunit --coverage-text`.
 
+To run acceptance (end-to-end) tests with your API credentials, run `PARTNER_ID=XXX PARTNER_KEY=YYYYY phpunit`.
+
 If you're green, you're good!
 
 ## Actions

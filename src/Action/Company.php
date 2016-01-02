@@ -138,8 +138,8 @@ class Company implements ActionInterface {
    * Build the Response Object
    *
    * @param array $body
-   * @param \Psr\Http\Message\ResponseInterface $response
-   * @return \Glassdoor\ResponseObject\ResponseInterface
+   * @param \GuzzleHttp\Psr7\Response $response
+   * @return \Glassdoor\ResponseObject\Company\CompanyResponse
    */
   public function buildResponse(array $body, Response $response) {
     $companies = empty($body['response']['employers']) ? [] : $body['response']['employers'];

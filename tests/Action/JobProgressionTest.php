@@ -1,6 +1,6 @@
 <?php
 
-namespace Glassdoor\Tests;
+namespace Glassdoor\Tests\Action;
 
 use Glassdoor\Action\JobProgression;
 use Glassdoor\Tests\Fixture\JobProgression as JobProgressionFixture;
