@@ -1,8 +1,13 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor\ResponseObject;
-
-
+/**
+ *
+ */
 class JobProgression {
   /**
    * @var string
@@ -26,6 +31,9 @@ class JobProgression {
   private $median_salary;
 
 
+  /**
+   *
+   */
   public function __construct(array $values) {
     $this->frequency = empty($value['frequency']) ? '' : $value['frequency'];
     $this->job_title = empty($value['nextJobTitle']) ? '' : $value['nextJobTitle'];

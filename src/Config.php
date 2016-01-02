@@ -1,10 +1,14 @@
 <?php
 
+/**
+ * @file
+ */
+
 namespace Glassdoor;
 use Glassdoor\Error\GlassDoorConfigException;
 
 /**
- * Configuration Class
+ * Configuration Class.
  */
 final class Config {
   /**
@@ -31,7 +35,7 @@ final class Config {
    * @param $response_format
    * @throws \Glassdoor\Error\GlassDoorConfigException
    */
-  public function __construct($partner_id, $partner_key, $base_url='http://api.glassdoor.com/api/api.htm', $response_format='json') {
+  public function __construct($partner_id, $partner_key, $base_url = 'http://api.glassdoor.com/api/api.htm', $response_format = 'json') {
     if (empty(trim($partner_id)) ||
         empty(trim($partner_key)) ||
         empty(trim($base_url))) {
@@ -81,4 +85,5 @@ final class Config {
   public function getPartnerKey() {
     return $this->partner_key;
   }
+
 }
