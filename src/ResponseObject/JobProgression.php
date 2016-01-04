@@ -2,76 +2,102 @@
 
 /**
  * @file
+ * Job progression.
  */
 
 namespace Glassdoor\ResponseObject;
+
 /**
- *
+ * JobProgression class.
  */
 class JobProgression {
+
   /**
+   * Job title.
+   *
    * @var string
    */
-  private $job_title;
+  private $jobTitle;
+
   /**
+   * Frequency.
+   *
    * @var int
    */
   private $frequency;
+
   /**
+   * Frequency percentage.
+   *
    * @var float
    */
-  private $frequency_percent;
-  /**
-   * @var int
-   */
-  private $national_job_count;
-  /**
-   * @var int
-   */
-  private $median_salary;
-
+  private $frequencyPercent;
 
   /**
+   * National job count.
    *
+   * @var string
+   */
+  private $nationalJobCount;
+
+  /**
+   * Median salary.
+   *
+   * @var int
+   */
+  private $medianSalary;
+
+  /**
+   * Constructor.
    */
   public function __construct(array $values) {
     $this->frequency = empty($value['frequency']) ? '' : $value['frequency'];
-    $this->job_title = empty($value['nextJobTitle']) ? '' : $value['nextJobTitle'];
-    $this->frequency_percent = empty($value['frequencyPercent']) ? '' : $value['frequencyPercent'];
-    $this->national_job_count = empty($value['nationalJobCount']) ? '' : $value['nationalJobCount'];
-    $this->median_salary = empty($value['medianSalary']) ? '' : $value['medianSalary'];
+    $this->jobTitle = empty($value['nextJobTitle']) ? '' : $value['nextJobTitle'];
+    $this->frequencyPercent = empty($value['frequencyPercent']) ? '' : $value['frequencyPercent'];
+    $this->nationalJobCount = empty($value['nationalJobCount']) ? '' : $value['nationalJobCount'];
+    $this->medianSalary = empty($value['medianSalary']) ? '' : $value['medianSalary'];
   }
 
   /**
-   * @return string
+   * Job title.
+   *
+   * @var string
    */
   public function getJobTitle() {
-    return $this->job_title;
+    return $this->jobTitle;
   }
 
   /**
-   * @return int
+   * Frequency.
+   *
+   * @var int
    */
   public function getFrequency() {
     return $this->frequency;
   }
 
   /**
-   * @return float
+   * Frequency percent.
+   *
+   * @var float
    */
   public function getFrequencyPercent() {
-    return $this->frequency_percent;
+    return $this->frequencyPercent;
   }
 
   /**
-   * @return int
+   * National job count.
+   *
+   * @var int
    */
   public function getNationalJobCount() {
-    return $this->national_job_count;
+    return $this->nationalJobCount;
   }
 
   /**
-   * @return int
+   * Salary.
+   *
+   * @var int
    */
   public function getMedianSalary() {
     return $this->median_salary;

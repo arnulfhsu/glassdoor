@@ -2,92 +2,146 @@
 
 /**
  * @file
+ * Company object class.
  */
 
 namespace Glassdoor\ResponseObject\Company;
 
-
 use GuzzleHttp\Psr7\Uri;
+
 /**
- *
+ * Company class.
  */
 class Company {
 
   /**
+   * ID.
+   *
    * @var int
    */
   private $id;
+
   /**
+   * Company name.
+   *
    * @var string
    */
   private $name;
+
   /**
-   * @var Uri
+   * Company website url.
+   *
+   * @var \GuzzleHttp\Psr7\Uri
    */
   private $website;
+
   /**
+   * Is EEP.
+   *
    * @var boolean
    */
   private $isEEP;
+
   /**
+   * Exact match for company.
+   *
    * @var boolean
    */
   private $exactMatch;
+
   /**
+   * Industry.
+   *
    * @var string
    */
   private $industry;
+
   /**
+   * Number of glassoor ratings.
+   *
    * @var int
    */
   private $numberOfRating;
+
   /**
-   * @var Uri
+   * Company logo url.
+   *
+   * @var \GuzzleHttp\Psr7\Uri
    */
   private $squareLogo;
+
   /**
+   * Company Rating.
+   *
    * @var float
    */
   private $overallRatings;
+
   /**
-   * @var float
+   * Rating description.
+   *
+   * @var string
    */
   private $ratingDescription;
+
   /**
+   * Company culture and values rating.
+   *
    * @var float
    */
   private $cultureAndValuesRatings;
+
   /**
+   * Company leadership rating.
+   *
    * @var float
    */
   private $seniorLeadershipRating;
+
   /**
+   * Compensation rating.
+   *
    * @var float
    */
   private $compensationAndBenefitsRating;
+
   /**
+   * Career opportunities rating.
+   *
    * @var float
    */
   private $careerOpportunitiesRating;
+
   /**
+   * Work/life balance rating.
+   *
    * @var float
    */
   private $workLifeBalanceRating;
+
   /**
+   * Recommend to friend rating.
+   *
    * @var float
    */
   private $recommendToFriendRating;
+
   /**
+   * Review objects.
+   *
    * @var \Glassdoor\ResponseObject\Company\Review
    */
   private $featuredReview;
+
   /**
-   * @var Person
+   * CEO.
+   *
+   * @var \Glassdoor\ResponseObject\Company\Person
    */
   private $ceo;
 
   /**
-   *
+   * Constructor.
    */
   public function __construct(array $values) {
     $this->id = empty($values['id']) ? '' : $values['id'];
@@ -117,126 +171,180 @@ class Company {
   }
 
   /**
+   * ID.
+   *
    * @return int
+   *   Return attribute.
    */
   public function getId() {
     return $this->id;
   }
 
   /**
+   * Name.
+   *
    * @return string
+   *   Return attribute.
    */
   public function getName() {
     return $this->name;
   }
 
   /**
-   * @return Uri
+   * Company url.
+   *
+   * @return \GuzzleHttp\Psr7\Uri
+   *   Return attribute.
    */
   public function getWebsite() {
     return $this->website;
   }
 
   /**
-   * @return boolean
+   * Company EEP.
+   *
+   * @return bool
+   *   Return attribute.
    */
-  public function isIsEEP() {
+  public function isIsEep() {
     return $this->isEEP;
   }
 
   /**
-   * @return boolean
+   * Company is exact match.
+   *
+   * @return bool
+   *   Return attribute.
    */
   public function isExactMatch() {
     return $this->exactMatch;
   }
 
   /**
+   * Get industry.
+   *
    * @return string
+   *   Return attribute.
    */
   public function getIndustry() {
     return $this->industry;
   }
 
   /**
+   * Number of company ratings.
+   *
    * @return int
+   *   Return attribute.
    */
   public function getNumberOfRating() {
     return $this->numberOfRating;
   }
 
   /**
-   * @return Uri
+   * Company logo url.
+   *
+   * @return \GuzzleHttp\Psr7\Uri
+   *   Return attribute.
    */
   public function getSquareLogo() {
     return $this->squareLogo;
   }
 
   /**
+   * Overall rating.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getOverallRatings() {
     return $this->overallRatings;
   }
 
   /**
+   * Rating description.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getRatingDescription() {
     return $this->ratingDescription;
   }
 
   /**
+   * Culture rating.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getCultureAndValuesRatings() {
     return $this->cultureAndValuesRatings;
   }
 
   /**
+   * Leadership rating.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getSeniorLeadershipRating() {
     return $this->seniorLeadershipRating;
   }
 
   /**
+   * Compensation rating.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getCompensationAndBenefitsRating() {
     return $this->compensationAndBenefitsRating;
   }
 
   /**
+   * Opportunities rating.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getCareerOpportunitiesRating() {
     return $this->careerOpportunitiesRating;
   }
 
   /**
+   * Work/life rating.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getWorkLifeBalanceRating() {
     return $this->workLifeBalanceRating;
   }
 
   /**
+   * Recommend to friend rating.
+   *
    * @return float
+   *   Return attribute.
    */
   public function getRecommendToFriendRating() {
     return $this->recommendToFriendRating;
   }
 
   /**
-   * @return Review
+   * Featured reviews.
+   *
+   * @return \Glassdoor\ResponseObject\Company\Review
+   *   Return attribute.
    */
   public function getFeaturedReview() {
     return $this->featuredReview;
   }
 
   /**
-   * @return Person
+   * CEO.
+   *
+   * @return \Glassdoor\ResponseObject\Company\Person
+   *   Return attribute.
    */
   public function getCeo() {
     return $this->ceo;

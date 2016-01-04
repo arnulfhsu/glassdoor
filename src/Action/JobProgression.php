@@ -2,25 +2,39 @@
 
 /**
  * @file
+ * Action to access the JobProgression endpoint.
  */
 
 namespace Glassdoor\Action;
 
-
 use Glassdoor\Error\GlassdoorException;
 use Glassdoor\ResponseObject\JobProgressionResponse;
 use GuzzleHttp\Psr7\Response;
+
 /**
- *
+ * JobProgression class.
  */
 class JobProgression implements ActionInterface {
+
+  /**
+   * Job title.
+   *
+   * @var string
+   */
   private $job_title;
+
+  /**
+   * Country ID.
+   *
+   * @var int
+   */
   private $country_id = 1;
 
   /**
    * Return params array.
    *
    * @return array
+   *   Parameters.
    *
    * @throws \Glassdoor\Error\GlassdoorException
    */
@@ -35,16 +49,19 @@ class JobProgression implements ActionInterface {
     ];
   }
 
-
   /**
-   * Set a url param.
+   * Add a new parameter.
    *
-   * @param $key
-   * @param $value
+   * @param string $key
+   *   Parameter key.
+   * @param string $value
+   *   Parameter value.
    *
    * @return $this
+   *   JobProgression object.
    *
    * @throws \Glassdoor\Error\GlassdoorException
+   *   Exception if invalid parameter is added.
    */
   public function addParam($key, $value) {
     if ($key !== 'job_title' && $key !== 'country_id') {
@@ -55,11 +72,11 @@ class JobProgression implements ActionInterface {
     return $this;
   }
 
-
   /**
    * The name of the action to use in the GD API.
    *
    * @return string
+   *   Name of the action.
    */
   public static function action() {
     return 'jobs-prog';
@@ -69,6 +86,7 @@ class JobProgression implements ActionInterface {
    * The HTTP method to use for the call.
    *
    * @return string
+   *   GET method for call.
    */
   public function getMethod() {
     return 'GET';
@@ -77,7 +95,8 @@ class JobProgression implements ActionInterface {
   /**
    * Get the Version of the API to use.
    *
-   * @return string
+   * @return int
+   *   API version
    */
   public function getVersion() {
     return 1;
@@ -87,9 +106,12 @@ class JobProgression implements ActionInterface {
    * Build the Response Object.
    *
    * @param array $body
+   *   Body of the response.
    * @param \GuzzleHttp\Psr7\Response $response
+   *   Response object.
    *
    * @return \Glassdoor\ResponseObject\ResponseInterface
+   *   Built response.
    */
   public function buildResponse(array $body, Response $response) {
     $progressions = empty($body['response']['results']) ? [] : $body['response']['results'];
