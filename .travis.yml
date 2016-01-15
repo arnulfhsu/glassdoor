@@ -12,7 +12,7 @@ before_script:
   - travis_retry phpenv rehash
 
 script:
-  - ./vendor/bin/phpcs --config-set ignore_errors_on_exit 1 && ./vendor/bin/phpcs --standard=./vendor/drupal/coder/coder_sniffer/Drupal src/
+  - ./vendor/bin/phpcs ./vendor/bin/phpcs --standard=./vendor/drupal/coder/coder_sniffer/Drupal src/
   - ./vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
