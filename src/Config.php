@@ -109,4 +109,32 @@ final class Config {
     return $this->partnerKey;
   }
 
+  /**
+   * Get user agent.
+   *
+   * @return string
+   *   User agent.
+   */
+  public function getUserAgent() {
+    if ($_SERVER['HTTP_USER_AGENT']) {
+      return $_SERVER['HTTP_USER_AGENT'];
+    }
+    return 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36';
+  }
+
+  /**
+   * Get user ip address.
+   *
+   * @return string
+   *   IP address.
+   */
+  public function getUserIp() {
+    // @codingStandardsIgnoreStart
+    if ($_SERVER['REMOTE_ADDR']) {
+      return $_SERVER['REMOTE_ADDR'];
+    }
+    // @codingStandardsIgnoreEnd
+    return gethostbyname(gethostname());
+  }
+
 }

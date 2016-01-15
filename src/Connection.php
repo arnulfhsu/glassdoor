@@ -70,8 +70,8 @@ final class Connection {
     $params['format'] = $this->config->getResponseFormat();
     $params['t.p'] = $this->config->getPartnerId();
     $params['t.k'] = $this->config->getPartnerKey();
-    $params['userip'] = $_SERVER['REMOTE_ADDR'];
-    $params['useragent'] = $_SERVER['HTTP_USER_AGENT'];
+    $params['userip'] = $this->config->getUserIp();
+    $params['useragent'] = $this->config->getUserAgent();
     $params['action'] = $action->action();
 
     // Allow any overrides.
