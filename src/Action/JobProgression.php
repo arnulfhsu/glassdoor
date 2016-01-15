@@ -21,14 +21,14 @@ class JobProgression implements ActionInterface {
    *
    * @var string
    */
-  private $job_title;
+  private $jobTitle;
 
   /**
    * Country ID.
    *
    * @var int
    */
-  private $country_id = 1;
+  private $countryId = 1;
 
   /**
    * Return params array.
@@ -37,15 +37,16 @@ class JobProgression implements ActionInterface {
    *   Parameters.
    *
    * @throws \Glassdoor\Error\GlassdoorException
+   *   Job title Required for JobProgression Action.
    */
   public function getParams() {
-    if (empty($this->job_title)) {
-      throw new GlassdoorException('job_title Required for JobProgression Action');
+    if (empty($this->jobTitle)) {
+      throw new GlassdoorException('jobTitle Required for JobProgression Action.');
     }
 
     return [
-      'jobTitle' => $this->job_title,
-      'countryId' => $this->country_id,
+      'jobTitle' => $this->jobTitle,
+      'countryId' => $this->countryId,
     ];
   }
 
@@ -61,11 +62,11 @@ class JobProgression implements ActionInterface {
    *   JobProgression object.
    *
    * @throws \Glassdoor\Error\GlassdoorException
-   *   Exception if invalid parameter is added.
+   *   Job Progression Param can only be jobTitle or countryId.
    */
   public function addParam($key, $value) {
-    if ($key !== 'job_title' && $key !== 'country_id') {
-      throw new GlassdoorException('Job Progression Param can only be job_title or country_id');
+    if ($key !== 'jobTitle' && $key !== 'countryId') {
+      throw new GlassdoorException('Job Progression Param can only be jobTitle or countryId.');
     }
 
     $this->$key = $value;

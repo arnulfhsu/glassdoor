@@ -16,12 +16,12 @@ use GuzzleHttp\Psr7\Response;
  */
 class Company implements ActionInterface {
   private $query;
-  private $location_search;
+  private $locationSearch;
   private $city;
   private $state;
   private $country;
   private $page = 1;
-  private $page_size = 20;
+  private $pageSize = 20;
 
   /**
    * Return params array.
@@ -137,7 +137,7 @@ class Company implements ActionInterface {
     }
 
     if (isset($this->location_search)) {
-      $return['l'] = $this->location_search;
+      $return['l'] = $this->locationSearch;
     }
 
     if (isset($this->city)) {
@@ -157,7 +157,7 @@ class Company implements ActionInterface {
     }
 
     if (isset($this->page_size)) {
-      $return['ps'] = $this->page_size;
+      $return['ps'] = $this->pageSize;
     }
 
     return $return;
