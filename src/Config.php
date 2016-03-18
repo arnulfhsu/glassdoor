@@ -17,22 +17,22 @@ final class Config {
   /**
    * Partner ID.
    */
-  private $partner_id;
+  private $partnerId;
 
   /**
    * Partner Key.
    */
-  private $partner_key;
+  private $partnerKey;
 
   /**
    * Base Url.
    */
-  private $base_url;
+  private $baseUrl;
 
   /**
    * Response - either 'xml' OR 'json'.
    */
-  private $response_format;
+  private $responseFormat;
 
   /**
    * Construct method.
@@ -50,10 +50,8 @@ final class Config {
    *   Invalid config.
    */
   public function __construct($partner_id, $partner_key, $base_url = 'http://api.glassdoor.com/api/api.htm', $response_format = 'json') {
-    if (empty(trim($partner_id)) ||
-        empty(trim($partner_key)) ||
-        empty(trim($base_url))) {
 
+    if (empty(trim($partner_id)) || empty(trim($partner_key))) {
       throw new GlassDoorConfigException('Partner Id, key and Base URL are required.');
     }
 
@@ -61,15 +59,14 @@ final class Config {
       throw new GlassDoorConfigException('Base URL must be a valid URL');
     }
 
-    $this->partner_id = $partner_id;
-    $this->partner_key = $partner_key;
-    $this->base_url = $base_url;
-
     if (strtolower($response_format) !== 'json' && strtolower($response_format) !== 'xml') {
       throw new GlassDoorConfigException('Response Format must be json or xml.');
     }
 
-    $this->response_format = $response_format;
+    $this->partnerId = $partner_id;
+    $this->partnerKey = $partner_key;
+    $this->baseUrl = $base_url;
+    $this->responseFormat = $response_format;
   }
 
   /**
@@ -79,7 +76,7 @@ final class Config {
    *   Base url.
    */
   public function getBaseUrl() {
-    return $this->base_url;
+    return $this->baseUrl;
   }
 
   /**
@@ -89,7 +86,7 @@ final class Config {
    *   Format.
    */
   public function getResponseFormat() {
-    return $this->response_format;
+    return $this->responseFormat;
   }
 
   /**
@@ -99,7 +96,7 @@ final class Config {
    *   Partner id.
    */
   public function getPartnerId() {
-    return $this->partner_id;
+    return $this->partnerId;
   }
 
   /**
@@ -109,7 +106,35 @@ final class Config {
    *   Partner key.
    */
   public function getPartnerKey() {
-    return $this->partner_key;
+    return $this->partnerKey;
+  }
+
+  /**
+   * Get user agent.
+   *
+   * @return string
+   *   User agent.
+   */
+  public function getUserAgent() {
+    if ($_SERVER['HTTP_USER_AGENT']) {
+      return $_SERVER['HTTP_USER_AGENT'];
+    }
+    return 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36';
+  }
+
+  /**
+   * Get user ip address.
+   *
+   * @return string
+   *   IP address.
+   */
+  public function getUserIp() {
+    // @codingStandardsIgnoreStart
+    if ($_SERVER['REMOTE_ADDR']) {
+      return $_SERVER['REMOTE_ADDR'];
+    }
+    // @codingStandardsIgnoreEnd
+    return gethostbyname(gethostname());
   }
 
 }

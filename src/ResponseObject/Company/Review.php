@@ -140,7 +140,7 @@ class Review {
    * @return string
    *   String.
    */
-  public function getJobTitleFromDB() {
+  public function getJobTitleFromDb() {
     return $this->jobTitleFromDB;
   }
 

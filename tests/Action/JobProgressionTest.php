@@ -9,8 +9,8 @@ class JobProgressionTest extends \PHPUnit_Framework_TestCase {
   public function testParams() {
     $action = new JobProgression();
 
-    $action->addParam('job_title', 'title');
-    $action->addParam('country_id', 2);
+    $action->addParam('jobTitle', 'title');
+    $action->addParam('countryId', 2);
 
     $params = $action->getParams();
 
@@ -19,7 +19,7 @@ class JobProgressionTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @expectedException        Glassdoor\Error\GlassdoorException
-   * @expectedExceptionMessage job_title Required for JobProgression Action
+   * @expectedExceptionMessage jobTitle Required for JobProgression Action
    */
   public function testParamTitleError() {
     (new JobProgression())->getParams();
@@ -27,7 +27,7 @@ class JobProgressionTest extends \PHPUnit_Framework_TestCase {
 
   /**
    * @expectedException        Glassdoor\Error\GlassdoorException
-   * @expectedExceptionMessage Job Progression Param can only be job_title or country_id
+   * @expectedExceptionMessage Job Progression Param can only be jobTitle or countryId.
    */
   public function testInvalidKey() {
     (new JobProgression())->addParam('wrong', 'value');

@@ -106,7 +106,7 @@ class CompanyResponse implements ResponseInterface {
    * @return string
    *   Attribution url.
    */
-  public function getAttributionURL() {
+  public function getAttributionUrl() {
     return $this->attributionURL;
   }
 

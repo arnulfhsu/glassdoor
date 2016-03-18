@@ -29,7 +29,7 @@ class JobProgressionAcceptanceTest extends \PHPUnit_Framework_TestCase {
         $connection = new Connection($config);
 
         $action = new JobProgression;
-        $action->addparam('job_title', 'developer');
+        $action->addparam('jobTitle', 'developer');
 
         // Get the response from the API
         $response = $connection->call($action);
