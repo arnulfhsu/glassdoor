@@ -88,7 +88,7 @@ class Company implements ActionInterface {
    *   This class.
    */
   public function searchByCompanyOrJob($search) {
-    return $this->addParam('queyr', $search);
+    return $this->addParam('query', $search);
   }
 
   /**
