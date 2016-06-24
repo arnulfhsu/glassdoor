@@ -154,7 +154,7 @@ class Company {
     $this->numberOfRating = empty($values['numberOfRating']) ? '' : $values['numberOfRating'];
     $this->overallRatings = empty($values['overallRatings']) ? '' : $values['overallRatings'];
     $this->ratingDescription = empty($values['ratingDescription']) ? '' : $values['ratingDescription'];
-    $this->cultureAndValuesRatings = empty($values['cultureAndValuesRatings']) ? '' : $values['cultureAndValuesRatings'];
+    $this->cultureAndValuesRatings = empty($values['cultureAndValuesRating']) ? '' : $values['cultureAndValuesRating'];
     $this->seniorLeadershipRating = empty($values['seniorLeadershipRating']) ? '' : $values['seniorLeadershipRating'];
     $this->compensationAndBenefitsRating = empty($values['compensationAndBenefitsRating']) ? '' : $values['compensationAndBenefitsRating'];
     $this->careerOpportunitiesRating = empty($values['careerOpportunitiesRating']) ? '' : $values['careerOpportunitiesRating'];
