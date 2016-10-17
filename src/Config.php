@@ -35,6 +35,16 @@ final class Config {
   private $responseFormat;
 
   /**
+   * User IP.
+   */
+  private $userIP;
+
+  /**
+   * User Agent.
+   */
+  private $userAgent;
+
+  /**
    * Construct method.
    *
    * @param string $partner_id
@@ -49,7 +59,7 @@ final class Config {
    * @throws \Glassdoor\Error\GlassDoorConfigException
    *   Invalid config.
    */
-  public function __construct($partner_id, $partner_key, $base_url = 'http://api.glassdoor.com/api/api.htm', $response_format = 'json') {
+  public function __construct($partner_id, $partner_key, $base_url = 'http://api.glassdoor.com/api/api.htm', $response_format = 'json', $user_ip = '', $user_agent = '') {
 
     if (empty(trim($partner_id)) || empty(trim($partner_key))) {
       throw new GlassDoorConfigException('Partner Id, key and Base URL are required.');
@@ -67,6 +77,8 @@ final class Config {
     $this->partnerKey = $partner_key;
     $this->baseUrl = $base_url;
     $this->responseFormat = $response_format;
+    $this->userIP = !empty($user_ip) ? $user_ip : gethostbyname(gethostname());
+    $this->userAgent = !empty($user_agent) ? $user_agent : 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36';
   }
 
   /**
@@ -116,10 +128,7 @@ final class Config {
    *   User agent.
    */
   public function getUserAgent() {
-    if ($_SERVER['HTTP_USER_AGENT']) {
-      return $_SERVER['HTTP_USER_AGENT'];
-    }
-    return 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36';
+    return $this->userAgent;
   }
 
   /**
@@ -129,12 +138,7 @@ final class Config {
    *   IP address.
    */
   public function getUserIp() {
-    // @codingStandardsIgnoreStart
-    if ($_SERVER['REMOTE_ADDR']) {
-      return $_SERVER['REMOTE_ADDR'];
-    }
-    // @codingStandardsIgnoreEnd
-    return gethostbyname(gethostname());
+    return $this->userIP;
   }
 
 }
